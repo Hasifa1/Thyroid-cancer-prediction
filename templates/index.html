@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Food image classification</title>
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<center>
+      <h1><i>Thyroid Cancer Detection</i></h1>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+     <table>
+     <tr>
+         <td>
+         <label for="upload_img" class="upload-label">
+            Choose image
+        </label>
+             <input id="upload_img" name="file" type="file"  onchange="loadFile(event)" >
+         </td>
+     </tr>
+          <tr>
+             <td>
+                 <p style="margin-block-start: 5px;margin-block-end: 0px;">Uploaded Image</p>
+                 <img id="view_uploaded_img" width="200" style="padding: 10px;"/>
+             </td>
+          </tr>
+
+         <tr>
+
+          <td colspan="3">
+             <input  id="btn" type="submit" value="PREDICT" />
+         </td>
+        </tr>
+         <tr>
+             <td>
+                  <img id="view_img" width="200" style="padding: 10px;"/>
+             </td>
+         </tr>
+         <tr>
+             <td>
+
+                   <p> Prediction : {{pred}}</p>
+             </td>
+         </tr>
+
+
+<script>
+    var loadFile = function(event) {
+        var output_img = document.getElementById('view_uploaded_img');
+        output_img.src = URL.createObjectURL(event.target.files[0]);
+
+    };
+</script>
+</form>
+</center>
+</body>
+</html>
